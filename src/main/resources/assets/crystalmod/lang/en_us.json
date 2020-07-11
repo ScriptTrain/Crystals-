@@ -1,0 +1,41 @@
+{
+    "item.crystalmod.ruby": "Ruby",
+    "block.crystalmod.ruby_block": "Ruby Block",
+    "block.crystalmod.ruby_ore": "Ruby Ore",
+    "item.crystalmod.ruby_pickaxe": "Ruby Pickaxe",
+    "item.crystalmod.ruby_axe": "Ruby Axe",
+    "item.crystalmod.ruby_shovel": "Ruby Shovel",
+    "item.crystalmod.ruby_sword": "Ruby Sword",
+    "item.crystalmod.ruby_hoe": "Ruby Hoe",
+    "item.crystalmod.ruby_helmet": "Ruby Helmet",
+    "item.crystalmod.ruby_chestplate": "Ruby Chestplate",
+    "item.crystalmod.ruby_leggings": "Ruby Leggings",
+    "item.crystalmod.ruby_boots": "Ruby Boots",
+
+
+
+    "item.crystalmod.emerald_pickaxe": "Emerald Pickaxe",
+    "item.crystalmod.emerald_axe": "Emerald Axe",
+    "item.crystalmod.emerald_shovel": "Emerald Shovel",
+    "item.crystalmod.emerald_sword": "Emerald Sword",
+    "item.crystalmod.emerald_hoe": "Emerald Hoe",
+    "item.crystalmod.emerald_helmet": "Emerald Helmet",
+    "item.crystalmod.emerald_chestplate": "Emerald Chestplate",
+    "item.crystalmod.emerald_leggings": "Emerald Leggings",
+    "item.crystalmod.emerald_boots": "Emerald Boots",
+
+
+
+    "item.crystalmod.amethyst": "Amethyst",
+    "block.crystalmod.amethyst_block": "Amethyst Block",
+    "block.crystalmod.amethyst_ore": "Amethyst Ore",
+    "item.crystalmod.amethyst_pickaxe": "Amethyst Pickaxe",
+    "item.crystalmod.amethyst_axe": "Amethyst Axe",
+    "item.crystalmod.amethyst_shovel": "Amethyst Shovel",
+    "item.crystalmod.amethyst_sword": "Amethyst Sword",
+    "item.crystalmod.amethyst_hoe": "Amethyst Hoe",
+    "item.crystalmod.amethyst_helmet": "Amethyst Helmet",
+    "item.crystalmod.amethyst_chestplate": "Amethyst Chestplate",
+    "item.crystalmod.amethyst_leggings": "Amethyst Leggings",
+    "item.crystalmod.amethyst_boots": "Amethyst Boots"
+}
