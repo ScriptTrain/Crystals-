@@ -9,8 +9,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.block.Block;
@@ -35,7 +37,13 @@ public class CrystalMod implements ModInitializer {
 
     public static final ArmorMaterial EMERALD_ARMOR = new EmeraldArmorMaterial();
 
-    public static final ArmorMaterial RUBY_ARMOR = new RubyArmorMaterial();
+    public static final ArmorMaterial RUBY_ARMOR = new RubyArmorMaterial();    
+
+    private static final Feature<DefaultFeatureConfig> LAVA_HOLE = Registry.register(
+        Registry.FEATURE,
+        new Identifier("crystalmod", "stone_spiral"),
+        new StoneSpiralFeature(null)
+    );
 
     @Override
     public void onInitialize() {
@@ -87,6 +95,14 @@ public class CrystalMod implements ModInitializer {
 
         Registry.BIOME.forEach(this::handleBiome);
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, identifier, biome) -> handleBiome(biome));
+
+        Registry.BIOME.forEach(CrystalMod::putFeatures);        
+    }
+
+    private static void putFeatures(Biome biome) {
+        biome.addFeature(GenerationStep.Feature.RAW_GENERATION,
+            LAVA_HOLE.configure(new DefaultFeatureConfig())
+                .createDecoratedFeature(Decorator.CHANCE_HEIGHTMAP.configure(new ChanceDecoratorConfig(100))));
     }
 
     private void handleBiome(final Biome biome) {
