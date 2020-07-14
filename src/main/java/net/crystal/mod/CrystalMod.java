@@ -17,6 +17,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.world.gen.GenerationStep;
 
+//feature-branch test comment
+
 public class CrystalMod implements ModInitializer {
 
     public static final Item AMETHYST = new Item(new Item.Settings().group(ItemGroup.MISC));
