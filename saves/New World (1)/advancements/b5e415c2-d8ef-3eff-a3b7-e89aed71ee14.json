@@ -1,0 +1,15 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:dark_forest": "2020-07-18 15:34:55 -0700"
+    },
+    "done": false
+  },
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2020-07-18 15:34:55 -0700"
+    },
+    "done": true
+  },
+  "DataVersion": 2567
+}

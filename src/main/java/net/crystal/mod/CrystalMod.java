@@ -1,5 +1,6 @@
 package net.crystal.mod;
 
+import net.crystal.mod.polishingtable.PolishingTableItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.item.ArmorMaterial;
@@ -86,6 +87,8 @@ public class CrystalMod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("crystalmod", "ruby_chestplate"), new BaseArmor(RUBY_ARMOR, EquipmentSlot.CHEST));
         Registry.register(Registry.ITEM, new Identifier("crystalmod", "ruby_leggings"), new BaseArmor(RUBY_ARMOR, EquipmentSlot.LEGS));
         Registry.register(Registry.ITEM, new Identifier("crystalmod", "ruby_boots"), new BaseArmor(RUBY_ARMOR, EquipmentSlot.FEET));
+
+        Registry.register(Registry.ITEM, new Identifier("crystalmod", "polishingtable"), new PolishingTableItem(new Item.Settings().group(ItemGroup.MISC)));
 
         Registry.BIOME.forEach(this::handleBiome);
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, identifier, biome) -> handleBiome(biome));
