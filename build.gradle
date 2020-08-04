@@ -21,7 +21,17 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
+	modImplementation "io.github.cottonmc:LibGui:2.2.0+1.16.1"
 }
+
+repositories {		
+		// uncomment to publish to the local maven
+		// mavenLocal()
+		maven {
+			name = "CottonMC"
+			url 'https://server.bbkr.space/artifactory/libs-release'
+		}
+	}
 
 processResources {
 	inputs.property "version", project.version
@@ -70,8 +80,8 @@ publishing {
 	}
 
 	// select the repositories you want to publish to
-	repositories {
+	repositories {		
 		// uncomment to publish to the local maven
-		// mavenLocal()
+		// mavenLocal()		
 	}
 }

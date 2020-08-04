@@ -9,7 +9,12 @@ import net.minecraft.sound.BlockSoundGroup;
 public class RubyBlock extends Block {
 
     public RubyBlock() {
-        super(FabricBlockSettings.of(Material.STONE).breakByHand(false).breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).hardness(5).resistance(6));
+        super(FabricBlockSettings.of(Material.STONE)
+            .breakByHand(false)
+            .breakByTool(FabricToolTags.PICKAXES)
+            .sounds(BlockSoundGroup.STONE)
+            .hardness(5)
+            .resistance(6));
     }
     
 }
