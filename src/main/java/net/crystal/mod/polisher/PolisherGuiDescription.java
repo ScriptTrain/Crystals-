@@ -10,7 +10,7 @@ import net.minecraft.screen.ScreenHandlerType;
 public class PolisherGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 1;
 
-    public PolisherGuiDescription(ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
+    public PolisherGuiDescription(ScreenHandlerType<PolisherGuiDescription> type, int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(type, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context));
 
         WGridPanel root = new WGridPanel();

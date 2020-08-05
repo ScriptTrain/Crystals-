@@ -128,7 +128,7 @@ public interface ImplementedInventory extends Inventory, MyStupidInterface {
      * @return true if the player can use the inventory, false otherwise.
      */ 
     @Override
-    default boolean canPlayerUseInv(PlayerEntity player) {
+    default boolean canPlayerUse(PlayerEntity player) {
         return true;
     }
 }
