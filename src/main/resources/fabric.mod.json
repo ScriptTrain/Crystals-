@@ -18,20 +18,25 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.crystal.mod.CrystalMod"
-    ]
+    "main": ["net.crystal.mod.CrystalMod"],
+    "client": ["net.crystal.mod.polisher.client.LibGuiTestClient"]
   },
   "mixins": [
 
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": "1.16.x"
+    "fabricloader": ">=0.8.8",
+		"fabric": "*",
+		"minecraft": ">=1.16.1",
+		"jankson": "^3.0.0"
   },
   "suggests": {
     "flamingo": "*"
-  }
+  },
+
+  "custom": {
+		"modmenu:api": true,
+		"modmenu:clientsideOnly": false
+	}
 }

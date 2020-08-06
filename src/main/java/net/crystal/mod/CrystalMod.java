@@ -3,13 +3,18 @@ package net.crystal.mod;
 import net.crystal.mod.polishingtable.PolishingTableItem;
 import net.crystal.mod.polisher.PolisherBlock;
 import net.crystal.mod.polisher.PolisherBlockEntity;
+import net.crystal.mod.polisher.PolisherBlockScreen;
+import net.crystal.mod.polisher.PolisherGuiDescription;
+import net.crystal.mod.polisher.PolisherItem;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
-
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -50,6 +55,7 @@ public class CrystalMod implements ModInitializer {
 
     public static BlockEntityType<PolisherBlockEntity> POLISHER_BLOCK_ENTITY;
     public static final PolisherBlock POLISHER_BLOCK = new PolisherBlock();    
+    public static ScreenHandlerType<PolisherGuiDescription> SCREEN_HANDLER_TYPE;
 
     @Override
     public void onInitialize() {
@@ -104,9 +110,12 @@ public class CrystalMod implements ModInitializer {
         Registry.BIOME.forEach(this::handleBiome);
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, identifier, biome) -> handleBiome(biome));
 
-        Registry.register(Registry.BLOCK, new Identifier("crystalmod", "polisher_block"), POLISHER_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier("crystalmod", "polisher_block"), new BlockItem(POLISHER_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
-        POLISHER_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "crystalmod:polisher", BlockEntityType.Builder.create(PolisherBlockEntity::new, POLISHER_BLOCK).build(null));
+        Registry.register(Registry.ITEM, new Identifier("crystalmod", "client_gui"), new PolisherItem());
+        Registry.register(Registry.BLOCK, new Identifier("crystalmod", "gui"), POLISHER_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier("crystalmod", "gui"), new BlockItem(POLISHER_BLOCK, new Item.Settings().group(ItemGroup.MISC)));
+        POLISHER_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "crystalmod:gui", BlockEntityType.Builder.create(PolisherBlockEntity::new, POLISHER_BLOCK).build(null));
+        SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(new Identifier("crystalmod", "gui"), (syncId, inventory) -> { return new PolisherGuiDescription(SCREEN_HANDLER_TYPE, syncId, inventory, ScreenHandlerContext.EMPTY);});
+
     }
 
     private void handleBiome(final Biome biome) {

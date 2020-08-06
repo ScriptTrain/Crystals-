@@ -1,35 +1,48 @@
 package net.crystal.mod.polisher;
 
+import blue.endless.jankson.annotation.Nullable;
 import net.crystal.mod.CrystalMod;
+import net.crystal.mod.ImplementedInventory;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.LootableContainerBlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.util.collection.DefaultedList;
 
 /* This allows our polishing block to have an invetory. */
-public class PolisherBlockEntity extends BlockEntity {
+public class PolisherBlockEntity extends BlockEntity implements ImplementedInventory, NamedScreenHandlerFactory {
+	
+	DefaultedList<ItemStack> items =  DefaultedList.ofSize(8, ItemStack.EMPTY);
+	
+	public PolisherBlockEntity() {
+		super(CrystalMod.POLISHER_BLOCK_ENTITY);
+	}
 
-    public int number = 7;
+	@Override
+	public DefaultedList<ItemStack> getItems() {
+		return items;
+	}
+	
+	@Override
+	public boolean canPlayerUse(PlayerEntity player) {
+		return pos.isWithinDistance(player.getBlockPos(), 4.5);
+	}
 
-    public PolisherBlockEntity() {
-        super(CrystalMod.POLISHER_BLOCK_ENTITY);
-     }
+	@Override
+	public Text getDisplayName() {
+		return new LiteralText(""); // no title
+	}
 
-     // Serialize the BlockEntity
-    public CompoundTag toTag(CompoundTag tag) {
-        super.toTag(tag);
-
-        // Save the current value of the number to the tag
-        tag.putInt("number", number);
-
-        return tag;
-    }
-
-        // Deserialize the BlockEntity
-    public void fromTag(CompoundTag tag) {
-        super.fromTag(this.getCachedState(), tag);
-        number = tag.getInt("number");
-    }
-
-    public int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
+	@Nullable
+	@Override
+	public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+		return new PolisherGuiDescription(CrystalMod.SCREEN_HANDLER_TYPE, syncId, inv, ScreenHandlerContext.create(world, pos));
     }
 }
