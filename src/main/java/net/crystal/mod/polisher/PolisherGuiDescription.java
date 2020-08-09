@@ -30,7 +30,7 @@ public class PolisherGuiDescription extends SyncedGuiDescription {
 		root.add(WItemSlot.of(blockInventory, 0, 1, 1), 2, 3);
 		root.add(WItemSlot.of(blockInventory, 0, 1, 1), 3, 3);
 		root.add(WItemSlot.of(blockInventory, 0, 1, 1), 4, 3);
-		root.add(WItemSlot.of(blockInventory, 0, 1, 1), 6, 2);
+		root.add(WItemSlot.of(blockInventory, 1, 1, 1), 6, 2);
 
 
 		root.add(createPlayerInventoryPanel(), 0, 5);

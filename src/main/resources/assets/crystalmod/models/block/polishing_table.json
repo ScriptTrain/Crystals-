@@ -1,0 +1,9 @@
+{
+  "parent": ":block/orientable",
+  "textures": {
+    "bottom": "crystalmod:block/polishing_table_bottom",
+    "top": "crystalmod:block/polishing_table_top",
+    "side": "crystalmod:block/polishing_table_side",
+    "front": "crystalmod:block/polishing_table_side"
+  }
+}
