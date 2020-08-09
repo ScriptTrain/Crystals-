@@ -37,5 +37,7 @@
     "item.crystalmod.amethyst_helmet": "Amethyst Helmet",
     "item.crystalmod.amethyst_chestplate": "Amethyst Chestplate",
     "item.crystalmod.amethyst_leggings": "Amethyst Leggings",
-    "item.crystalmod.amethyst_boots": "Amethyst Boots"
+    "item.crystalmod.amethyst_boots": "Amethyst Boots",
+
+    "block.crystalmod.polishing_table": "Polishing Table"
 }
