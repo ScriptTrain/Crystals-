@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:bedrock",
+    "crystalmod:amethyst_block"
+  ]
+}
